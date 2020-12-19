@@ -37,7 +37,13 @@ STEPS -
 1. Copy APIs from EDD files.
 2. Import one CSV file on AWS and use the URL in Google Collaboration.
 3. In Google Collaboration, clean up data and create dataframes.
-4. Create database in pgAdmin and create tables.
+4. Create database in pgAdmin and create tables with code at the bottom.
+5. After initial setup, server can be created with the following:
+server name: "occupation-trends"
+HOST: occupation-trends.cppwghmqrqzq.us-west-1.rds.amazonaws.com
+username : root
+pwd : data1234
+6. Access to the Tableau file to view story.
 
 <!-- CREATE USER admin22 with Password '12345'
 Alter User admin22 With SuperUser;
@@ -94,6 +100,3 @@ year INT,
 industry_title VARCHAR,
 current_employment INT
 );
-
-4. Use the cleaned data in Tableau to create visualizations.
-
