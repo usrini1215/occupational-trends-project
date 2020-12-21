@@ -1,6 +1,7 @@
 OVERVIEW:
     Using machine learning, we will project occupational growth/decline in the next 10 years in California. 
 
+QUESTION TO ANSWER:
     Which occupation will be highest in demand in California in the next 10 years?
 
 DATA SOURCES WE USE:
@@ -28,22 +29,30 @@ LANGUAGES/INSTALLATONS:
     Python Pandas
     Python Matplotlib 
     Scikit-Learn
+    SQLAlchemy
 
-NOTE:
-    
 
 STEPS -
 
 1. Copy APIs from EDD files.
 2. Import one CSV file on AWS and use the URL in Google Collaboration.
 3. In Google Collaboration, clean up data and create dataframes.
-4. Create database in pgAdmin and create tables with code at the bottom.
-5. After initial setup, server can be created with the following:
-server name: "occupation-trends"
-HOST: occupation-trends.cppwghmqrqzq.us-west-1.rds.amazonaws.com
+4. Codes under "Posgres Setup" was used to create database in pgAdmin by connecting to AWS.
+5. Create the server "occupation_trends_rds" and connect to AWS by using the following:
+host: occupation-trends.cppwghmqrqzq.us-west-1.rds.amazonaws.com
+port: 6432
 username : root
 pwd : data1234
-6. Access to the Tableau file to view story.
+6. Select the pgAdmin server as the connection in Tableau.
+7. Visualizations were made using tables in pgAdmin.
+8. Machine learning was ran with the following files:
+* modelDatajobs.ipynb
+* modelDatajobs2020.ipynb
+* modelRestaurants.ipynb
+* modelRestaurants2020.ipynb
+The slope, y-intercept, testing score, and training scores were saved for Datajobs2020 and Restaurants2020.
+9. Created a calculated field in Tableau using slope and y-intercepts for Datajobs2020 and Restaurants2020 and linear regression line was added to data.
+10. Created sheets of visualizations, dashboards from the sheets, and a story with all dashboards that were created.
 
 <!-- CREATE USER admin22 with Password '12345'
 Alter User admin22 With SuperUser;
@@ -71,6 +80,7 @@ age_65 FLOAT
 CREATE TABLE local_area_unemployment_stats(
 area_name VARCHAR,
 year INT,
+month VARCHAR,
 employment INT,
 unemployment INT,
 unemployment_rate FLOAT
@@ -96,7 +106,17 @@ mean_wage FLOAT
 
 CREATE TABLE current_employment_stats(
 area_name VARCHAR,
-year INT, 
+year INT,
+month VARCHAR, 
 industry_title VARCHAR,
 current_employment INT
 );
+
+CREATE TABLE restaurant2020(
+y_intercept FLOAT,
+slope FLOAT,
+training_score FLOAT,
+testing_score FLOAT
+);
+
+
