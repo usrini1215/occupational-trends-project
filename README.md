@@ -1,9 +1,6 @@
 OVERVIEW:
-    Using machine learning, we will project occupational growth/decline in the next 10 years in California. 
-
-QUESTION TO ANSWER:
-    Which occupation will be highest in demand in California in the next 10 years?
-
+    Looking at employment statistics for California, we want to know which industries and which occupations are the most lucrative and have the most growth.
+    
 DATA SOURCES WE USE:
 •	https://data.edd.ca.gov/Industry-Information-/Current-Employment-Statistics-CES-/r4zm-kdcg
 Current Employment Statistics (CES)
@@ -22,11 +19,11 @@ Unemployment_Rate_by_Age_Groups.csv
 
 FEATURES:
     Tableau
-    Postgres (AWS)
-    
+    Postgres 
+    AWS
 LANGUAGES/INSTALLATONS:  
-    HTML/CSS
     Python Pandas
+    PySpark
     Python Matplotlib 
     Scikit-Learn
     SQLAlchemy
